@@ -3,6 +3,7 @@ const app = express()
 app.set('views engine', 'ejs')
 //设置存放目录,如果不设置默认views
 app.set('views','./views')
+app.use('/node_modules',express.static('./node_modules')) //node_modules静态托管
 app.get('/',(req,res)=>{
     res.render('index.ejs',{name:'zs',age:18})
 })
