@@ -49,15 +49,24 @@
     <script>
         $(function () {  
             $('#form').on('submit',function (e) {  
-                e.preventDefault() //return false 也可以放到代码的最后面
                 $.ajax({
                     type:'post',
-                    url:'http://127.0.0.1:80/register',
+                    url:'/register',
                     data:$('#form').serialize(),
                     success (res) {
                         console.log(res);
+                        // if(res.status == 200){
+                            alert(res.msg)
+                            location.href = '/login'
+                        // }
+                    },
+                    error (err) {
+                        // alert(err.responseJSON.msg) //错误时提示
+                        //可以不用if去判断
                     }
                 })
+                e.preventDefault() //return false 也可以放到代码的最后面
+
             })
         })
     
