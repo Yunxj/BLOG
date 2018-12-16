@@ -25,7 +25,8 @@ app.use('/node_modules',express.static('./node_modules')) //node_modules静态�
 // app.use(userRouter)
 //用fs模块读取router目录下所有的文件名, 循环添加路由模块
 fs.readdir(path.join(__dirname,'./router'),(err,filenames)=>{
-    if(err) return console.log('读取路由失败');
+    if(err) return console.log('读取路由失败')
+    // console.log(filenames) //[ 'article.js', 'index.js', 'user.js' ]
     filenames.forEach(fname=>{
         //绝对路径
         //let 和 const 在循环里面,每次循环const的作用域不一样,是下一个新的作用域,新的一个const

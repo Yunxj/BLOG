@@ -48,9 +48,11 @@ module.exports = {
         //     res.redierct('/')
         //     // res.send({status:200,msg:'退出登录成功'})
         // }) 
-        req.session.destroy(function() {
+        req.session.destroy(function(err) {
             // 使用 res.redirect 方法，可以让 客户端重新访问 指定的页面
             res.redirect('/')
+            // res.send({status:200,msg:'退出登录成功'})
+
         })
     }
 }
