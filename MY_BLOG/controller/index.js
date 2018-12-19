@@ -11,7 +11,7 @@ module.exports = {
     // },
     indexHandler: (req,res)=>{
         const pageSize = 3 
-        console.log(req.query.page);
+        // console.log(req.query.page);
         const nowPage = parseInt(req.query.page) || 1
         //模板字符串
         const usersql = `select c.id ,c.title ,c.ctime ,b.nickname 

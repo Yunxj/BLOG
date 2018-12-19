@@ -4,12 +4,12 @@ const conn = require('../db/db.js')
 const bcrypt = require('bcryptjs')
 module.exports = {
     getRegister: (req,res)=>{
-        res.render('./user/register.ejs', {})
+        res.render('./user/register.ejs', {}) //渲染注册页面
     },
-    getLogin:(req,res)=>{
-        res.render('./user/login.ejs', {})
+    getLogin:(req,res)=>{  
+        res.render('./user/login.ejs', {}) //渲染登录页面
     },
-    postRegister:(req,res)=>{
+    postRegister:(req,res)=>{   //注册账号
         const uesrInfo = req.body
         if(uesrInfo.username.trim().length <=0 || uesrInfo.password.trim().length <=0 || uesrInfo.nickname.trim().length <=0 ){
             return res.status(400).send({status:400,msg:'请输入正确的用户名信息'})
@@ -36,7 +36,7 @@ module.exports = {
         })
         // res.redirect('./login')  重定向
     },
-    postLogin:(req,res)=>{
+    postLogin:(req,res)=>{  //登录验证
         const loginInfo = req.body
         // console.log(loginInfo);
         const loginSql = 'select * from blog where username = ?'
@@ -57,7 +57,7 @@ module.exports = {
         //     res.redierct('/')
         //     // res.send({status:200,msg:'退出登录成功'})
         // }) 
-        req.session.destroy(function(err) {
+        req.session.destroy(function(err) {  //销毁session
             // 使用 res.redirect 方法，可以让 客户端重新访问 指定的页面
             res.redirect('/')
             // res.send({status:200,msg:'退出登录成功'})
