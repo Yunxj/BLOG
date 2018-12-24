@@ -35,8 +35,8 @@ fs.readdir(path.join(__dirname,'./router'),(err,filenames)=>{
         app.use(router)
     })
 })
-app.listen(80,()=>{
-    console.log('http://127.0.0.1:80');
+app.listen(8002,()=>{
+    console.log('http://127.0.0.1:8002');
 })
 
 //高内聚  能在自己内部完成的一定不要干扰外部
